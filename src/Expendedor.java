@@ -40,19 +40,6 @@ public class Expendedor {
                 int vuelto = m.getValor() - precio;
 
                 while (vuelto > 0) {
-                    if (vuelto >= 1000) {
-                        monVu.addMoneda(new Moneda1000());
-                        vuelto -= 1000;
-                        continue;
-                    }
-
-                    if (vuelto >= 500) {
-                        monVu.addMoneda(new Moneda500());
-                        vuelto -= 500;
-                        continue;
-
-                    }
-
                     if (vuelto >= 100) {
                         monVu.addMoneda(new Moneda100());
                         vuelto -= 100;
