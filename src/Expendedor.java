@@ -2,37 +2,30 @@ public class Expendedor {
         
     public static final int COCA = 1;
     public static final int SPRITE = 2;
-    private Deposito coca, sprite;
+    private Deposito coca, sprite, fanta, super8, snickers;
     private Deposito monVu;
     private int precio;
 
-    public Expendedor(int numBebidas, int precioBebidas) {
-        precio = precioBebidas;
+    public Expendedor(int numProductos, int precioProductos) {
+        precio = precioProductos;
         coca = new Deposito();
         sprite = new Deposito();
+        fanta = new Deposito();
+        super8 = new Deposito();
+        snickers = new Deposito();
         monVu = new Deposito();
 
-        for (int i = 0; i < numBebidas; i++) {
-            coca.addBebida(new CocaCola(i));
-            sprite.addBebida(new Sprite(i));
+        for (int i = 0; i < numProductos; i++) {
+            coca.addProducto(new CocaCola(i));
+            sprite.addProducto(new Sprite(i));
+            fanta.addProducto(new Fanta(i));
+            super8.addProducto(new Super8(i));
+            snickers.addProducto(new Snickers(i));
         }
     }
-    /*aqui va el comprarProducto() throws PagoIncorrectoException, PagoInsuficiente Exception, NoHayProductoException{
-        if (m == null) {
-            throw new PagoIncorrectoException("No tienes saldo para comprar");
-        }
-        if (m.getValor() < precio) {
-            monVu.addMoneda(m);
-            throw new PagoInsuficienteException("El saldo es insuficiente para comprar el producto");
-        if (b == null) {
-            monVu.addMoneda(m);
-            throw new NoHayProductoException("No quedan productos en el expendedor");
-        }
 
-    }*/
-    public Bebida comprarBebida(Moneda m, int tipo) throws PagoInsuficienteException, NoHayProductoException, PagoIncorrectoException{
+    public Producto comprarProducto(Moneda m, int tipo) throws PagoInsuficienteException, NoHayProductoException, PagoIncorrectoException{
         if (m == null) {
-            //return null;
             throw new PagoIncorrectoException("No has insertado monedas en el expendedor");
         }
 
@@ -41,11 +34,17 @@ public class Expendedor {
             throw new PagoInsuficienteException("El saldo es insuficiente para comprar el producto"); //este va para ver si funciona
         }
 
-            Bebida b = null;
+            Producto b = null;
             if (tipo == COCA) {
-                b = coca.getBebida();
+                b = coca.getProducto();
             } else if (tipo == SPRITE) {
-                b = sprite.getBebida();
+                b = sprite.getProducto();
+            } else if (tipo == SPRITE) {
+                b = fanta.getProducto();
+            } else if (tipo == SPRITE) {
+                b = super8.getProducto();
+            } else if (tipo == SPRITE) {
+                b = snickers.getProducto();
             }
 
             if (b == null) {
@@ -62,10 +61,8 @@ public class Expendedor {
                     }
                 }
             }
-
             return b;
         }
-
         public Moneda getVuelto() {
             return monVu.getMoneda();
         }

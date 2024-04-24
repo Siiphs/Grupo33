@@ -1,25 +1,22 @@
 public class Comprador {
-    private String sonido;
+    private String sabor;
     private int vuelto = 0;
-    public Comprador(Moneda m, int cualBebida, Expendedor exp) {
+    public Comprador(Moneda m, int cualProducto, Expendedor exp) {
         try{
-            Bebida b = exp.comprarBebida(m, cualBebida);
+            Producto b = exp.comprarProducto(m, cualProducto);
             if(b != null ){
-                sonido = b.sabor();
+                sabor = b.sabor();
             }
             else {
-                sonido = null;
+                sabor = null;
             }
-
         }
         catch(Exception e){
-            
             System.out.println(e.getMessage());
         }
         finally{
             while (true) {
                 m = exp.getVuelto();
-
                 if (m != null) {
                     vuelto = vuelto + m.getValor();
                 } else {
@@ -31,7 +28,7 @@ public class Comprador {
     public int cuantoVuelto(){
         return vuelto;
     }
-    public String queBebiste(){
-        return sonido;
+    public String queConsumiste(){
+        return sabor;
     }
 }
