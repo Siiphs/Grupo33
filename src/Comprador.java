@@ -2,22 +2,29 @@ public class Comprador {
     private String sonido;
     private int vuelto = 0;
     public Comprador(Moneda m, int cualBebida, Expendedor exp) {
-        Bebida b = exp.comprarBebida(m, cualBebida);
+        try{
+            Bebida b = exp.comprarBebida(m, cualBebida);
+            if(b != null ){
+                sonido = b.sabor();
+            }
+            else {
+                sonido = null;
+            }
 
-        if(b != null ){
-            sonido = b.sabor();
         }
-        else {
-            sonido = null;
+        catch(PagoInsuficienteException pie){
+            
+            System.out.println("Error generico");
         }
+        finally{
+            while (true) {
+                m = exp.getVuelto();
 
-        while (true) {
-            m = exp.getVuelto();
-
-            if (m != null) {
-                vuelto = vuelto + m.getValor();
-            } else {
-                break;
+                if (m != null) {
+                    vuelto = vuelto + m.getValor();
+                } else {
+                    break;
+                }
             }
         }
     }
@@ -28,4 +35,3 @@ public class Comprador {
         return sonido;
     }
 }
-
