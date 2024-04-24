@@ -30,9 +30,10 @@ public class Expendedor {
         }
 
     }*/
-    public Bebida comprarBebida(Moneda m, int tipo) throws PagoInsuficienteException{
+    public Bebida comprarBebida(Moneda m, int tipo) throws PagoInsuficienteException, NoHayProductoException, PagoIncorrectoException{
         if (m == null) {
-            return null;
+            //return null;
+            throw new PagoIncorrectoException("No has insertado monedas en el expendedor");
         }
 
         if (m.getValor() < precio) {
@@ -49,6 +50,7 @@ public class Expendedor {
 
             if (b == null) {
                 monVu.addMoneda(m);
+                throw new NoHayProductoException("No quedan productos en el expendedor");
             } else {
                 int vuelto = m.getValor() - precio;
 

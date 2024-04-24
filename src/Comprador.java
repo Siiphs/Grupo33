@@ -12,9 +12,9 @@ public class Comprador {
             }
 
         }
-        catch(PagoInsuficienteException pie){
+        catch(Exception e){
             
-            System.out.println("Error generico");
+            System.out.println(e.getMessage());
         }
         finally{
             while (true) {
