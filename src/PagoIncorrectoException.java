@@ -1,5 +1,5 @@
 public class PagoIncorrectoException extends Exception {
-    public PagoIncorrectoException(){
-
+    public PagoIncorrectoException(String message){
+        super(message);
     }
 }
