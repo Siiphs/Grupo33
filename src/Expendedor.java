@@ -1,13 +1,8 @@
 public class Expendedor {
-        
-    public static final int COCA = 1;
-    public static final int SPRITE = 2;
     private Deposito coca, sprite, fanta, super8, snickers;
     private Deposito monVu;
-    private int precio;
 
-    public Expendedor(int numProductos, int precioProductos) {
-        precio = precioProductos;
+    public Expendedor(int numProductos) {
         coca = new Deposito();
         sprite = new Deposito();
         fanta = new Deposito();
@@ -25,6 +20,10 @@ public class Expendedor {
     }
 
     public Producto comprarProducto(Moneda m, int tipo) throws PagoInsuficienteException, NoHayProductoException, PagoIncorrectoException{
+
+        DatosProducto[] arrProductos = DatosProducto.values();
+        int precio = arrProductos[tipo-1].getPrecioProducto();
+
         if (m == null) {
             throw new PagoIncorrectoException("No has insertado monedas en el expendedor");
         }
@@ -35,22 +34,24 @@ public class Expendedor {
         }
 
             Producto b = null;
-            if (tipo == COCA) {
+            if (tipo == DatosProducto.COCACOLA.getCualProducto()) {
                 b = coca.getProducto();
-            } else if (tipo == SPRITE) {
+            } else if (tipo == DatosProducto.SPRITE.getCualProducto()) {
                 b = sprite.getProducto();
-            } else if (tipo == SPRITE) {
+            } else if (tipo == DatosProducto.FANTA.getCualProducto()) {
                 b = fanta.getProducto();
-            } else if (tipo == SPRITE) {
+            } else if (tipo == DatosProducto.SUPER8.getCualProducto()) {
                 b = super8.getProducto();
-            } else if (tipo == SPRITE) {
+            } else if (tipo == DatosProducto.SNICKERS.getCualProducto()) {
                 b = snickers.getProducto();
             }
 
             if (b == null) {
                 monVu.addMoneda(m);
                 throw new NoHayProductoException("No quedan productos en el expendedor");
-            } else {
+            } 
+            
+            else {
                 int vuelto = m.getValor() - precio;
 
                 while (vuelto > 0) {
@@ -63,6 +64,7 @@ public class Expendedor {
             }
             return b;
         }
+
         public Moneda getVuelto() {
             return monVu.getMoneda();
         }
