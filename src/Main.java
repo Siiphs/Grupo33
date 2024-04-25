@@ -62,6 +62,8 @@ public class Main{
             m = new Moneda1000();
             c = new Comprador(m,DatosProducto.SNICKERS.getCualProducto(),exp);
             System.out.println(c.queConsumiste()+", "+ c.cuantoVuelto());
+            c = new Comprador(m,DatosProducto.SNICKERS.getCualProducto(),exp);
+            System.out.println(c.queConsumiste()+", "+ c.cuantoVuelto());
         }
         catch(Exception e){
             

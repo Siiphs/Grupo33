@@ -2,8 +2,8 @@ public class Comprador {
     private String sabor;
     private int vuelto = 0;
     public Comprador(Moneda m, int cualProducto, Expendedor exp) {
-
         try{
+            
             Producto p = exp.comprarProducto(m, cualProducto);
             if(p != null ){
                 sabor = p.sabor();
@@ -12,8 +12,17 @@ public class Comprador {
                 sabor = null;
             }
         }
+        catch(NoHayProductoException nhpe){
+            System.out.println(nhpe.getMessage());
+        }
+        catch(PagoIncorrectoException pinc){
+            System.out.println(pinc.getMessage());
+        }
+        catch(PagoInsuficienteException pins){
+            System.out.println(pins.getMessage());
+        }
         catch(Exception e){
-            System.out.println(e.getMessage());
+            System.out.println("error generico");
         }
         finally{
             while (true) {

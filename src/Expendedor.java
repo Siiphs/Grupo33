@@ -21,9 +21,14 @@ public class Expendedor {
 
     public Producto comprarProducto(Moneda m, int tipo) throws PagoInsuficienteException, NoHayProductoException, PagoIncorrectoException{
 
+        if(tipo>5||tipo<1){
+            monVu.addMoneda(m);
+            throw new NoHayProductoException("El numero de producto no es valido");
+        }
+
         DatosProducto[] arrProductos = DatosProducto.values();
         int precio = arrProductos[tipo-1].getPrecioProducto();
-        
+
         if (m == null) {
             throw new PagoIncorrectoException("No has insertado monedas en el expendedor");
         }
@@ -45,7 +50,6 @@ public class Expendedor {
             } else if (tipo == DatosProducto.SNICKERS.getCualProducto()) {
                 p = snickers.getProducto();
             }
-
             if (p == null) {
                 monVu.addMoneda(m);
                 throw new NoHayProductoException("No quedan productos en el expendedor");
