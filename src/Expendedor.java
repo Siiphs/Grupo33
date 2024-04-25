@@ -23,7 +23,7 @@ public class Expendedor {
 
         DatosProducto[] arrProductos = DatosProducto.values();
         int precio = arrProductos[tipo-1].getPrecioProducto();
-
+        
         if (m == null) {
             throw new PagoIncorrectoException("No has insertado monedas en el expendedor");
         }
@@ -33,20 +33,20 @@ public class Expendedor {
             throw new PagoInsuficienteException("El saldo es insuficiente para comprar el producto"); //este va para ver si funciona
         }
 
-            Producto b = null;
+            Producto p = null;
             if (tipo == DatosProducto.COCACOLA.getCualProducto()) {
-                b = coca.getProducto();
+                p = coca.getProducto();
             } else if (tipo == DatosProducto.SPRITE.getCualProducto()) {
-                b = sprite.getProducto();
+                p = sprite.getProducto();
             } else if (tipo == DatosProducto.FANTA.getCualProducto()) {
-                b = fanta.getProducto();
+                p = fanta.getProducto();
             } else if (tipo == DatosProducto.SUPER8.getCualProducto()) {
-                b = super8.getProducto();
+                p = super8.getProducto();
             } else if (tipo == DatosProducto.SNICKERS.getCualProducto()) {
-                b = snickers.getProducto();
+                p = snickers.getProducto();
             }
 
-            if (b == null) {
+            if (p == null) {
                 monVu.addMoneda(m);
                 throw new NoHayProductoException("No quedan productos en el expendedor");
             } 
@@ -62,7 +62,7 @@ public class Expendedor {
                     }
                 }
             }
-            return b;
+            return p;
         }
 
         public Moneda getVuelto() {

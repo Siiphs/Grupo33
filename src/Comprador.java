@@ -2,10 +2,11 @@ public class Comprador {
     private String sabor;
     private int vuelto = 0;
     public Comprador(Moneda m, int cualProducto, Expendedor exp) {
+
         try{
-            Producto b = exp.comprarProducto(m, cualProducto);
-            if(b != null ){
-                sabor = b.sabor();
+            Producto p = exp.comprarProducto(m, cualProducto);
+            if(p != null ){
+                sabor = p.sabor();
             }
             else {
                 sabor = null;
