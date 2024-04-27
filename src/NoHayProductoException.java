@@ -1,9 +1,10 @@
 /** 
+ * Excepcion que ocurre en el caso de que se agoten los productos en la maquina expendedora, 
+ * o en el caso de que se ingrese un codigo invalido de producto, dados por la enumeracion:
+ * 
  * @author Dario Sepulveda
  * @since 22 de abril de 2024
  * 
- * Excepcion que ocurre en el caso de que se agoten los productos en la maquina expendedora, 
- * o en el caso de que se ingrese un codigo invalido de producto, dados por la enumeracion:
  * @see DatosProducto
  * 
  * 

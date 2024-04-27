@@ -1,6 +1,7 @@
 /** 
  * Excepcion que ocurre en el caso de que no se haya insertado saldo a la maquina expendedora, es decir,
  * no se haya recibido ningun puntero a moneda:
+ * 
  * @see Moneda
  * 
  * @author Dario Sepulveda

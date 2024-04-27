@@ -1,9 +1,9 @@
 /** 
+ * Subclase de Producto, la cual sirve de plantilla para insertar nuevos dulces a la maquina y que la implementacion de mas sea sencilla,
+ * en nuestro caso usamos dos:
  * @author Felipe Tilleria
  * @since 22 de abril de 2024
  * 
- * Subclase de Producto, la cual sirve de plantilla para insertar nuevos dulces a la maquina y que la implementacion de mas sea sencilla,
- * en nuestro caso usamos dos:
  * @see Snickers
  * @see Super8
  * 

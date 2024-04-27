@@ -1,10 +1,11 @@
 /**
+ * La clase Comprador representa una persona que llega al expendedor con una moneda y elige el producto que quiera recibir
+ * 
  * @author Joseph Matamala
  * @author Felipe Tilleria
  * @author Dario Sepulveda
  * @since 18 de abril de 2024
  * 
- * La clase Comprador representa una persona que llega al expendedor con una moneda y elige el producto que quiera recibir
  */
 public class Comprador {
     private String sabor;

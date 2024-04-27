@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
 /**
+ * La clase Deposito representa un deposito que almacena productos y
+ * monedas.
  * @author Felipe Tilleria
  * @author Joseph Matamala
  * @since 22 de abril de 2024
- *        La clase Deposito representa un deposito que almacena productos y
- *        monedas.
  */
 public class Deposito<T> {
     private ArrayList<T> t; // Lista de objetos

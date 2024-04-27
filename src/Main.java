@@ -1,14 +1,19 @@
+/**
+ * El sistema expendedor para la compra de bebidas y dulces, aquí se revisa el funcionamiento del sistema probando cada caso en el que este podría fallar,
+ * creando objetos Moneda y Comprador al momento de las pruebas
+ * 
+ * @author Joseph Matamala
+ * @author Felipe Tilleria
+ * @author Dario Sepulveda
+ * @since 18 de abril de 2024
+ * 
+ * 
+ * @throws PagoIncorrectoException
+ * @throws PagoInsuficienteException
+ * @throws NoHayProductoException
+ */
 public class Main {
-    /**
-     * @author Joseph Matamala
-     * @author Felipe Tilleria
-     * @author Dario Sepulveda
-     * @since 18 de abril de 2024
-     * @throws PagoIncorrectoException
-     * @throws PagoInsuficienteException
-     * @throws NoHayProductoException
-     */
-    // Metodo principal del programa
+
     public static void main(String[] args)
             throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException {
         try {
@@ -69,7 +74,7 @@ public class Main {
 
             //Compra exitosa
             System.out.println();
-            System.out.println("\033[36m" + "Caso 5: Comprar con la Moneda de mayor valor" + "\033[0m");
+            System.out.println("\033[36m" + "Caso 6: Comprar con la Moneda de mayor valor" + "\033[0m");
             m = new Moneda1000();
             c = new Comprador(m, 1, exp);
             System.out.println("\033[0;33m" + "Bebida: " + "\033[0m" + "Tipo: " + c.queConsumiste() + ", Vuelto: " + c.cuantoVuelto());

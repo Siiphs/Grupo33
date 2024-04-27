@@ -1,12 +1,13 @@
 /** 
+ * La clase Expendedor se encarga principalmente de dos cosas: 
+ * recibir una referencia a Moneda y entregar un producto a traves de el metodo comprarProducto() y
+ * entregar el vuelto gracias al metodo getVuelto()
+ * 
  * @author Joseph Matamala
  * @author Felipe Tilleria
  * @author Dario Sepulveda
  * @since 18 de abril de 2024
  * 
- * La clase Expendedor se encarga principalmente de dos cosas: 
- * recibir una referencia a Moneda y entregar un producto a traves de el metodo comprarProducto() y
- * entregar el vuelto gracias al metodo getVuelto()
  * 
  * 
  */

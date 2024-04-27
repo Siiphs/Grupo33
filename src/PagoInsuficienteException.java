@@ -2,6 +2,7 @@
  * Excepcion que ocurre en el caso de que se el saldo necesario para comprar un producto sea mayor
  * que el insertado en la maquina expendedora, es decir, que el int retornado por el getValor() de moneda,
  * sea menor al de precioProducto dado por la enumeracion de la clase DatosProducto.
+ * 
  * @see DatosProducto
  * @see Moneda
  * 

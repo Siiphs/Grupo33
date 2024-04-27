@@ -1,9 +1,11 @@
 /** 
+ * Subclase de Producto, la cual sirve de plantilla para insertar nuevas bebidas a la maquina y que la implementacion de mas sea sencilla,
+ * en nuestro caso usamos tres:
+ * 
  * @author Joseph Matamala
  * @since 22 de abril de 2024
  * 
- * Subclase de Producto, la cual sirve de plantilla para insertar nuevas bebidas a la maquina y que la implementacion de mas sea sencilla,
- * en nuestro caso usamos tres:
+ * 
  * @see CocaCola
  * @see Fanta
  * @see Sprite

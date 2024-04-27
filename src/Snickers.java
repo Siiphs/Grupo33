@@ -1,8 +1,9 @@
 /** 
+ * Subclase de Dulce que se retorna a la hora de comprar el producto
+ * 
  * @author Felipe Tilleria
  * @since 22 de abril de 2024
  * 
- * Subclase de Dulce que se retorna a la hora de comprar el producto
  * 
  * @see Dulce
  * 

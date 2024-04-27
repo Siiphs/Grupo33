@@ -1,8 +1,9 @@
 /**
+ * La clase Moneda representa el dinero con el que el Comprador va a adquirir un Producto del Expendedor
+ * 
  * @author Joseph Matamala
  * @since 18 de abril de 2024
  * 
- * La clase Moneda representa el dinero con el que el Comprador va a adquirir un Producto del Expendedor
  * @see Comprador
  * @see Producto
  * @see Expendedor

@@ -1,9 +1,11 @@
 /**
+ * El enum DatosProducto representa diferentes productos junto con su
+ * numero de producto y precio.
+ * 
  * @author Felipe Tilleria
  * @since 22 de abril de 2024
  * 
- *        El enum DatosProducto representa diferentes productos junto con su
- *        numero de producto y precio.
+ *        
  */
 public enum DatosProducto {
     COCACOLA(1, 500),
