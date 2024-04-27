@@ -53,19 +53,19 @@ public class Expendedor {
 
         if(tipo>5||tipo<1){
             monVu.addObj(m);
-            throw new NoHayProductoException("El numero de producto no es valido");
+            throw new NoHayProductoException("\033[0;31m" + "El numero de producto no es valido" + "\033[0m");
         }
 
         DatosProducto[] arrProductos = DatosProducto.values();
         int precio = arrProductos[tipo-1].getPrecioProducto();
 
         if (m == null) {
-            throw new PagoIncorrectoException("No has insertado monedas en el expendedor");
+            throw new PagoIncorrectoException("\033[0;31m" + "No has insertado monedas en el expendedor" + "\033[0m");
         }
 
         if (m.getValor() < precio) {
             monVu.addObj(m);
-            throw new PagoInsuficienteException("El saldo es insuficiente para comprar el producto");
+            throw new PagoInsuficienteException("\033[0;31m" + "El saldo es insuficiente para comprar el producto" + "\033[0m");
         }
 
             Producto p = null;
@@ -82,7 +82,7 @@ public class Expendedor {
             }
             if (p == null) {
                 monVu.addObj(m);
-                throw new NoHayProductoException("No quedan productos en el expendedor");
+                throw new NoHayProductoException("\033[0;31m" + "No quedan productos en el expendedor" + "\033[0m");
             } 
             
             else {
