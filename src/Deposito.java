@@ -7,58 +7,35 @@ import java.util.ArrayList;
  *        La clase Deposito representa un deposito que almacena productos y
  *        monedas.
  */
-public class Deposito {
-    private ArrayList<Producto> pro; // Lista de productos
-    private ArrayList<Moneda> mon; // Lista de monedas
+public class Deposito<T> {
+    private ArrayList<T> t; // Lista de objetos
 
     /**
      * Constructor de la clase Deposito.
-     * Inicializa las listas de productos y monedas como vacias.
+     * Inicializa las listas de objetos como vacias.
      */
     public Deposito() {
-        mon = new ArrayList<Moneda>();
-        pro = new ArrayList<>();
+        t = new ArrayList<>();
     }
 
     /**
-     * Agrega un producto al deposito.
+     * Agrega un objeto al deposito.
      *
-     * @param producto El producto a agregar.
+     * @param t El objeto a agregar.
      */
-    public void addProducto(Producto producto) {
-        pro.add(producto);
+    public void addObj(T t) {
+        this.t.add(t);
     }
 
     /**
-     * Agrega una moneda al deposito.
+     * Obtiene el primer objeto del deposito y lo elimina de la lista.
      *
-     * @param moneda La moneda a agregar.
+     * @return El objeto obtenido o null si la lista esta vacia.
      */
-    public void addMoneda(Moneda moneda) {
-        mon.add(moneda);
-    }
-
-    /**
-     * Obtiene el primer producto del deposito y lo elimina de la lista.
-     *
-     * @return El producto obtenido o null si la lista esta vacia.
-     */
-    public Producto getProducto() {
-        if (pro.isEmpty()) {
+    public T getObj() {
+        if (t.isEmpty()) {
             return null;
         }
-        return pro.remove(0);
-    }
-
-    /**
-     * Obtiene la primera moneda del deposito y la elimina de la lista.
-     *
-     * @return La moneda obtenida o null si la lista esta vacia.
-     */
-    public Moneda getMoneda() {
-        if (mon.isEmpty()) {
-            return null;
-        }
-        return mon.remove(0);
+        return t.remove(0);
     }
 }

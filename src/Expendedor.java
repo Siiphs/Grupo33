@@ -11,8 +11,8 @@
  * 
  */
 public class Expendedor {
-    private Deposito coca, sprite, fanta, super8, snickers;
-    private Deposito monVu;
+    private Deposito<Producto> coca, sprite, fanta, super8, snickers;
+    private Deposito<Moneda> monVu;
 
     /**El metodo constructor Expendedor es llamado por Main a la hora de probar su funcionamiento sumado a objetos Moneda y Comprador
      * @see Moneda
@@ -20,19 +20,19 @@ public class Expendedor {
      * Este metodo hace uso de la variable numProductos la cual, en un ciclo for, agrega dicha cantidad de productos a cada deposito de dulces o bebidas.
     */
     public Expendedor(int numProductos) { 
-        coca = new Deposito();
-        sprite = new Deposito();
-        fanta = new Deposito();
-        super8 = new Deposito();
-        snickers = new Deposito();
-        monVu = new Deposito();
+        coca = new Deposito<>();
+        sprite = new Deposito<>();
+        fanta = new Deposito<>();
+        super8 = new Deposito<>();
+        snickers = new Deposito<>();
+        monVu = new Deposito<>();
 
         for (int i = 0; i < numProductos; i++) {
-            coca.addProducto(new CocaCola(i));
-            sprite.addProducto(new Sprite(i));
-            fanta.addProducto(new Fanta(i));
-            super8.addProducto(new Super8(i));
-            snickers.addProducto(new Snickers(i));
+            coca.addObj(new CocaCola(i));
+            sprite.addObj(new Sprite(i));
+            fanta.addObj(new Fanta(i));
+            super8.addObj(new Super8(i));
+            snickers.addObj(new Snickers(i));
         }
     }
 
@@ -52,7 +52,7 @@ public class Expendedor {
     public Producto comprarProducto(Moneda m, int tipo) throws PagoInsuficienteException, NoHayProductoException, PagoIncorrectoException{
 
         if(tipo>5||tipo<1){
-            monVu.addMoneda(m);
+            monVu.addObj(m);
             throw new NoHayProductoException("El numero de producto no es valido");
         }
 
@@ -64,24 +64,24 @@ public class Expendedor {
         }
 
         if (m.getValor() < precio) {
-            monVu.addMoneda(m);
+            monVu.addObj(m);
             throw new PagoInsuficienteException("El saldo es insuficiente para comprar el producto");
         }
 
             Producto p = null;
             if (tipo == DatosProducto.COCACOLA.getCualProducto()) {
-                p = coca.getProducto();
+                p = coca.getObj();
             } else if (tipo == DatosProducto.SPRITE.getCualProducto()) {
-                p = sprite.getProducto();
+                p = sprite.getObj();
             } else if (tipo == DatosProducto.FANTA.getCualProducto()) {
-                p = fanta.getProducto();
+                p = fanta.getObj();
             } else if (tipo == DatosProducto.SUPER8.getCualProducto()) {
-                p = super8.getProducto();
+                p = super8.getObj();
             } else if (tipo == DatosProducto.SNICKERS.getCualProducto()) {
-                p = snickers.getProducto();
+                p = snickers.getObj();
             }
             if (p == null) {
-                monVu.addMoneda(m);
+                monVu.addObj(m);
                 throw new NoHayProductoException("No quedan productos en el expendedor");
             } 
             
@@ -90,7 +90,7 @@ public class Expendedor {
 
                 while (vuelto > 0) {
                     if (vuelto >= 100) {
-                        monVu.addMoneda(new Moneda100());
+                        monVu.addObj(new Moneda100());
                         vuelto -= 100;
                         continue;
                     }
@@ -104,6 +104,6 @@ public class Expendedor {
      * @return la Moneda que se devuelve del Deposito
      */
     public Moneda getVuelto() {
-        return monVu.getMoneda();
+        return monVu.getObj();
     }
 }

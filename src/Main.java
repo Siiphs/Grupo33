@@ -25,12 +25,12 @@ public class Main {
             c = new Comprador(m, 664, exp);
             System.out.println(c.queConsumiste() + ", " + c.cuantoVuelto());
 
-            // Transaccion 2: Moneda de 500, compra de producto numerode 664
+            // Transaccion 2: Moneda de 500, compra de producto numero 664
             m = new Moneda500();
             c = new Comprador(m, 664, exp);
             System.out.println(c.queConsumiste() + ", " + c.cuantoVuelto());
 
-            // Transaccion 3: Moneda de 500, compra de producto numerode 664
+            // Transaccion 3: Moneda de 500, compra de producto numero 664
             m = new Moneda500();
             c = new Comprador(m, 664, exp);
             System.out.println(c.queConsumiste() + ", " + c.cuantoVuelto());
